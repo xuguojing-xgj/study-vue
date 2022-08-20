@@ -21,6 +21,8 @@
         </div>
         <input v-model="refMessage" />
         <div>{{ refMessage }}</div>
+
+
     </div>
 </template>
 
@@ -34,7 +36,7 @@ const flag: string = '1'
 //  得到的类型 Ref<string | undefined>
 const refMessage = ref<string | number>('test')
 // : Ref<string | number> 仅表示类型 
-const RefMessage : Ref<string | number> = ref('0')
+const RefMessage: Ref<string | number> = ref('0')
 
 const clickFn = () => {
     console.log('触发了点击事件');
@@ -56,6 +58,33 @@ const props = defineProps<Props>()
 let typeFoo = typeof props.foo
 console.log(typeFoo);
 
+
+/**
+ * reactive 定义一个对象类型的响应式数据
+ * 返回一个 代理对象 (Proxy的实例对象, 简称 Proxy对象)
+ * reactive 定义响应式 数据是深层次的
+ * 内部 基于 Proxy 实现  通过代理对象源 对 对象内部数据进行操作
+ *  */
+import { reactive } from 'vue';
+interface obj {
+    name: string,
+    age: number,
+    test: Object | any,
+    arrList: Array<string>
+}
+const obj1: obj = reactive({
+    name: '小明',
+    age: 18,
+    test: {
+        sing: '唱歌'
+    },
+    arrList: ['123', '223', '323']
+})
+obj1.name = '小红'
+obj1.arrList[0] = '444'
+console.log(obj1);
+console.log(obj1.test.sing);
+console.log(obj1.arrList);
 </script>
 
 <style scoped>
