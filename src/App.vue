@@ -1,12 +1,11 @@
 <template>
     <div class="app">
-        <!-- <h3>我是app组件(祖)</h3> -->
-        div
+        {{ message ? '靓仔' : '镁铝'}}
     </div>
 </template>
 
-<script lang="ts" setup>
-
+<script setup lang="ts" >
+const message: number = 0
 </script>
 
 <style scoped>
