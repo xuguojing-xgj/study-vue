@@ -1,17 +1,15 @@
 <template>
-    <div class="app">
-        {{ message ? '靓仔' : '镁铝'}}
+    <div>
+        <div  v-text="message"></div>
+        <div  v-html="message1"></div>
+        <!-- {{ message.split(',').map(x => `&${x}`) }} -->
     </div>
 </template>
 
 <script setup lang="ts" >
-const message: number = 0
+const message: string = '我,是,小,憨,批'
+const message1: string = '<div>我,是,小,憨,批</div>'
 </script>
 
 <style scoped>
-.app {
-    background-color: #ccc;
-    width: 500px;
-    height: 500px;
-}
 </style>
