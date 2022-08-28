@@ -1,98 +1,95 @@
 <template>
     <div>
-        <div>
-            <div v-text="message"></div>
-            <div v-html="message1"></div>
-        </div>
-
-        <div v-if="flag == 'A'"> 这是a</div>
-        <div v-else-if="flag == 'B'"> 这是b</div>
-        <div v-else-if="flag == 'C'"> 这是c</div>
-        <div v-else> 这是d</div>
-
-        <button @click="clickFn">btn事件</button>
-
-        <form action="/">
-            <button @click.prevent="submitFn" type="submit"> 提交 </button>
-        </form>
-
-        <div :class="[flag ? 'aStyle' : 'bStyle']">
-            我是小憨批
-        </div>
-        <input v-model="refMessage" />
-        <div>{{ refMessage }}</div>
-
-
+        <!-- submit 提交事件 prevent修饰符 阻止页面刷新 -->
+        reactive
+        <p>{{ message }}</p>
+        <p>{{ val }}</p>
+        <!-- * shallowReactive 挂载之后不会更新深层次视图 比如 Object类型  -->
+        <button @click="change1">btn①</button>
+        <button @click="change2">btn②</button>
     </div>
 </template>
 
-<script setup lang="ts" >
-import { ref } from 'vue'
-import type { Ref } from 'vue'
-const message: string = '我,是,小,憨,批'
-const message1: string = '<div>我,是,小,憨,批</div>'
+<script setup lang="ts">
+import { reactive, readonly, shallowReactive, isReactive } from 'vue'
 
-const flag: string = '1'
-//  得到的类型 Ref<string | undefined>
-const refMessage = ref<string | number>('test')
-// : Ref<string | number> 仅表示类型 
-const RefMessage: Ref<string | number> = ref('0')
+let message = reactive<Array<number>>([]) // 接收一个复杂类型的数据
 
-const clickFn = () => {
-    console.log('触发了点击事件');
+setTimeout(() => {
+    let arr = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
+    // 直接赋值 会破坏 reactive 响应式
+    // 解决方法 ① .push(...arr)
+    message.push(...arr)
+
+    console.log(message);
+
+}, 1000)
+
+interface T {
+    list: number[]
 }
+let msg = reactive<T>({
+    list: []
+})
 
-const submitFn = (e: Object) => {
-    console.log(e);
+setTimeout(() => {
+    let arr = [1, 2, 2, 3, 3, 4, 4]
+    // 解决方法 ② 定义一个类型 进行赋值
+    msg.list = arr
 
-}
-interface Props {
-    foo: string,
-    bar?: number
-}
-// defineProps<{ /*... */ }>() 字面量
-// interface Props {/* ... */}
-// defineProps<Props>()
+    console.log(msg);
 
-const props = defineProps<Props>()
-let typeFoo = typeof props.foo
-console.log(typeFoo);
+}, 1000)
+
+
+// readonly copy只读
+let person = reactive({
+    count: 1
+})
+person.count++
+let copy = readonly(person)
+// 这里是不能修改数据的
+// copy.count++
+
 
 
 /**
- * reactive 定义一个对象类型的响应式数据
- * 返回一个 代理对象 (Proxy的实例对象, 简称 Proxy对象)
- * reactive 定义响应式 数据是深层次的
- * 内部 基于 Proxy 实现  通过代理对象源 对 对象内部数据进行操作
- *  */
-import { reactive } from 'vue';
-interface obj {
-    name: string,
-    age: number,
-    test: Object | any,
-    arrList: Array<string>
-}
-const obj1: obj = reactive({
-    name: '小明',
-    age: 18,
-    test: {
-        sing: '唱歌'
-    },
-    arrList: ['123', '223', '323']
+ * shallowReactive 挂载之前 跟踪 更新视图 
+ * shallowReactive 挂载之后不会更新深层次视图 比如 Object类型 
+ */
+
+let val = shallowReactive({
+    test: '我是小明',
+    nav: {
+        bar: {
+            name: '我是小红'
+        }
+    }
 })
-obj1.name = '小红'
-obj1.arrList[0] = '444'
-console.log(obj1);
-console.log(obj1.test.sing);
-console.log(obj1.arrList);
+
+const change1 = () => {
+    val.test = '我是小明 被改啦'
+}
+const change2 = () => {
+    val.nav.bar.name = '我是小红 被改啦 nav-bar-name'
+    console.log(val);
+
+}
+/**
+ * shallowReactive 挂载之前 跟踪 更新视图 
+ * change1()
+ * change2()
+ */
+
+//  import {
+//     shallowReactive,
+//     isReactive
+// } from 'https://unpkg.com/@vue/reactivity/dist/reactivity.esm-browser.js'
+// isReactive 判断是不是一个reactive 复杂类型的响应式数据 返回值 boolean
+const props = shallowReactive({ n: 1 })
+console.log(isReactive(props.n)) // false
+console.log(isReactive(props)) // true
 </script>
 
-<style scoped>
-.aStyle {
-    color: skyblue;
-}
-
-.bStyle {
-    color: aqua;
-}
+<style>
 </style>
