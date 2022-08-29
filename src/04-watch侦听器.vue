@@ -6,7 +6,7 @@ let inp = ref<string | number>('')
 let val = '监听input输入...'
 watch(inp, (newValue, oldValue):string => {
       console.log('最新值',newValue)
-        console.log('旧值',oldValue)
+      console.log('旧值',oldValue)
   setTimeout(() => {
     console.log(val)
   },1000)
