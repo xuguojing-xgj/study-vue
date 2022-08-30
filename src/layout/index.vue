@@ -9,7 +9,7 @@ let list = reactive<number[]>([1, 2, 3, 4])
  * 获取子组件 传递过来的数据
  */
 const getSonList = (list: string[]) => {
-    console.log(list);
+    console.log(list, '我是子组件传递的数据');
 }
 </script>
 
