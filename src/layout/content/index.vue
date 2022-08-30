@@ -41,13 +41,26 @@ const ObjList = reactive<T>({
         }
     }
 })
+/**
+ * 想父组件 传递事件
+ */
 const emit = defineEmits(['on-click', 'on-clickChange'])
+/**
+ * 定义方法
+ */
 const change = () => {
     emit('on-click', list, false)
 }
 const clickChange = () => {
     emit('on-clickChange', ObjList)
 }
+/**
+ * 向父组件 暴露实例 数据 让父组件 通过 ref 拿到 子组件 实例数据
+ */
+defineExpose({
+    list,
+    ObjList
+})
 </script>
 
 
