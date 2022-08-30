@@ -32,7 +32,7 @@ const getSonObjList = (ObjList: any) => {
     <div class="box">
         <!--子向父 @事件名称    父向子组件传值 :动态数组  -->
         <!-- 拿到子组件 实例 通过绑定 ref -->
-        <content ref="contentRef" @on-clickChange="getSonObjList" @on-click="getSonList" :dataList="list" title="我想买一条裤子" />
+        <content ref="contentRef" @on-clickChange="getSonObjList" @on-click="getSonList" :dataList="list" />
         <div class="div">我是 index 页面</div>
     </div>
 </template>

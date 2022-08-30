@@ -7,12 +7,20 @@ import { reactive } from "@vue/reactivity"
  * 定义一个接口类型
  */
 interface Props {
-    title: string,
-    dataList: number[]
+    title?: string, // 让 title 成为可选  可传 可不传
+    dataList?: number[] // 让 dataList 成为可选 可传 可不传 
 }
-defineProps<Props>()
-
-
+/**
+ * 在子组件内 默认参数 需要 withDefaults()
+ * withDefaults() 第一个参数 为 defineProps<Props>() 接收父组件的
+ * withDefaults() 第二个参数 为 一个对象{}
+ */
+withDefaults(defineProps<Props>(), {
+    title: '我是默认值',
+    // 而设置 dataList 默认值 时 则不能直接 定义数据 (报错)
+    // 需要通过 一个函数 进行定义 返回数据
+    dataList: () => [1, 2, 3, 4, 5, 6, 7, 8]
+})
 /**
  * 子向父传值
  * defineEmits() 返回一个函数 接收一个数组['事件名称']
@@ -87,6 +95,7 @@ defineExpose({
     height: 400px;
     background-color: #ccc;
 }
+
 .p {
     height: 1rpx;
 }
