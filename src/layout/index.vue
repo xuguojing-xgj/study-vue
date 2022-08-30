@@ -8,8 +8,11 @@ let list = reactive<number[]>([1, 2, 3, 4])
 /**
  * 获取子组件 传递过来的数据
  */
-const getSonList = (list: string[]) => {
-    console.log(list, '我是子组件传递的数据');
+const getSonList = (list: string[], flag: boolean) => {
+    console.log(list, flag, '我是子组件传递的数据');
+}
+const getSonObjList = (ObjList: any) => {
+    console.log(ObjList);
 }
 </script>
 
@@ -17,7 +20,7 @@ const getSonList = (list: string[]) => {
 <template>
     <div class="box">
         <!--子向父 @事件名称    父向子组件传值 :动态数组  -->
-        <content @on-click="getSonList" :dataList="list" title="我想买一条裤子" />
+        <content @on-clickChange="getSonObjList" @on-click="getSonList" :dataList="list" title="我想买一条裤子" />
         <div class="div">我是 index 页面</div>
     </div>
 </template>
