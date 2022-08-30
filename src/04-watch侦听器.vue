@@ -4,7 +4,7 @@ import { ref, watch , reactive} from 'vue'
 // 使用侦听器 侦听一个ref 响应式数据
 let inp = ref<string | number>('')
 let val = '监听input输入...'
-watch(inp, (newValue, oldValue):string => {
+watch(inp, (newValue, oldValue):any => {
       console.log('最新值',newValue)
       console.log('旧值',oldValue)
   setTimeout(() => {
