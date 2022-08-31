@@ -44,6 +44,13 @@ watch(() => reactiveObj.name , () => {})
 // 该回调函数在所有嵌套的变更时都会被触发
 watch(reactiveObj, () => {})
 
+
+
+const unwatch = watchEffect(() => {})
+
+// ...当该侦听器不再需要时
+unwatch()
+
 </script>
 
 <template>
