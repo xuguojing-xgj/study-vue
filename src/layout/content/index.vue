@@ -22,6 +22,18 @@ withDefaults(defineProps<Props>(), {
     dataList: () => [1, 2, 3, 4, 5, 6, 7, 8]
 })
 /**
+* 导出一个接口类型 默认数据
+*/
+export interface Props {
+  msg?: string
+  labels?: string[]
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  msg: 'hello',
+  labels: () => ['one', 'two']
+})
+/**
  * 子向父传值
  * defineEmits() 返回一个函数 接收一个数组['事件名称']
  * emit() 返回函数的 第一个为事件名称, 不限制 传递参数 可以传多个... 用逗号隔开
