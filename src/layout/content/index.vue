@@ -24,15 +24,15 @@ withDefaults(defineProps<Props>(), {
 /**
 * 导出一个接口类型 默认数据
 */
-export interface Props {
-  msg?: string
-  labels?: string[]
-}
+// export interface Props {
+//   msg?: string
+//   labels?: string[]
+// }
 
-const props = withDefaults(defineProps<Props>(), {
-  msg: 'hello',
-  labels: () => ['one', 'two']
-})
+// const props = withDefaults(defineProps<Props>(), {
+//   msg: 'hello',
+//   labels: () => ['one', 'two']
+// })
 /**
  * 子向父传值
  * defineEmits() 返回一个函数 接收一个数组['事件名称']

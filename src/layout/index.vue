@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import content from './content/index.vue'
 import { reactive , ref} from 'vue'
 
 /**
