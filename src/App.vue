@@ -35,18 +35,24 @@ const deleteAndAddFn = (item: Shop, type: boolean): void => {
     if (item.num < 99 && type) {
         item.num++
     }
-    total()
+    // total()
 }
 const delFn = (i: number) => {
     date.splice(i, 1)
-    total()
+    // total()
 }
-const total = () => {
-    $total.value = date.reduce((prev, next) => {
+// 使用计算属性实现 总价
+$total = computed((): number => {
+    return date.reduce((prev, next) => {
         return prev + (next.num * next.price)
     }, 0)
-}
-total()
+})
+// const total = () => {
+//     $total.value = date.reduce((prev, next) => {
+//         return prev + (next.num * next.price)
+//     }, 0)
+// }
+// total()
 </script>
 
 <template>
