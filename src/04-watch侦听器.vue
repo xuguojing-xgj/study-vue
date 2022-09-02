@@ -51,11 +51,30 @@ const unwatch = watchEffect(() => { })
 // ...当该侦听器不再需要时
 unwatch()
 
+/**
+ * 侦听多个值 [] 可以是一个数组
+ * ref 侦听响应式对象 需要开启深度侦听 deep: true
+ * reactive 响应式数据 默认可以深度侦听 不需要在开启 深度侦听
+ */
+let msg = ref<string>()
+let msg2 = ref<string>()
+let reactiveMsg = reactive({
+    name: '小明',
+    age: 18
+})
+watch([msg, msg2], (newVal, oldVal) => { }, { deep: true, immediate: true })
+/**
+ * 只侦听reactive 中其中一个属性值 可以用函数式 进行侦听
+ */
+watch(() => reactiveMsg.name, () => {})
 </script>
 
 <template>
     <p>
         Ask a yes/no question:
         <input v-model="inp" />
+
+        <input v-model="msg" />
+        <input v-model="msg2" />
     </p>
 </template>
