@@ -5,12 +5,15 @@
 <template>
     <div>
         <header class="header">header
+            <!-- 具名插槽 -->
+            <slot name="MyHeader"></slot>
         </header>
         <main class="main">main
             <!-- 匿名插槽 -->
             <slot></slot>
         </main>
         <footer class="footer">footer
+            <slot name="MyFooter"></slot>
         </footer>
     </div>
 </template>

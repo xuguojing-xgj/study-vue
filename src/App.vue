@@ -5,8 +5,14 @@ import MyDialog from './components/Dialog/index.vue'
 <template>
     <div>
         <MyDialog>
+            <template v-slot:MyHeader>
+                <div>我是Header 具名插槽</div>
+            </template>
             <template v-slot>
-                <div>我是匿名插槽</div>
+                <div>我是Main 匿名插槽</div>
+            </template>
+            <template #MyFooter>
+                <div>我是MyFooter 具名插槽</div>
             </template>
         </MyDialog>
     </div>
