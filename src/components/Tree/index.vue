@@ -37,9 +37,9 @@ export default {
 
 <template>
     <div style="margin-left:30px">
-        <div @click="ClickTreeItem(item)" :key="index" v-for="(item, index) in SonTreeData">
+        <div @click.stop="ClickTreeItem(item)" :key="index" v-for="(item, index) in SonTreeData">
             {{ item.name }}
-            <TreeItem v-if="item?.children?.length" :SonTreeData="item.children"></TreeItem>
+            <TreeItem @on-son-click="ClickTreeItem" v-if="item?.children?.length" :SonTreeData="item.children"></TreeItem>
         </div>
     </div>
 </template>
