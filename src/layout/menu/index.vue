@@ -47,6 +47,13 @@ const dataTree = reactive<TreeListType[]>([
         }]
     }
 ])
+
+/**
+ * 接收子组件传递 方法 getTreeData
+ */
+const getFatherTreeFn = (item: TreeListType) => {
+    console.log('父组件log', item);
+}
 </script>
 
 
@@ -54,7 +61,7 @@ const dataTree = reactive<TreeListType[]>([
     <div>
         <div class="menu">
             菜单区域
-            <MyTree :SonTreeData="dataTree"></MyTree>
+            <MyTree @on-son-click="getFatherTreeFn" :SonTreeData="dataTree"></MyTree>
         </div>
 
     </div>
