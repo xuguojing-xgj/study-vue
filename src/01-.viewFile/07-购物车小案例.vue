@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, reactive } from 'vue';
+
 interface Shop {
     id: number,
     name: string,
@@ -59,38 +60,3 @@ $total = computed((): number => {
     <div>
         <!-- 
             cellpadding 是边框与其内容的间隙大小
-            cellspacing 是边框与边框之间的间隙大小 -->
-        <table border style="width: 800px" cellpadding="0" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>名称 </th>
-                    <th>数量 </th>
-                    <th>单价 </th>
-                    <th>操作 </th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr v-for="(item, index) in date" :key="item.id">
-                    <td>{{  item.name  }}</td>
-                    <td> <button @click="deleteAndAddFn(item, false)">-</button> {{  item.num  }} <button
-                            @click="deleteAndAddFn(item, true)">+</button> </td>
-                    <td>{{  item.num * item.price  }}</td>
-                    <td><button @click="delFn(index)">删除</button></td>
-                </tr>
-            </tbody>
-
-            <tfoot>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>总价: {{  $total  }}</td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-</template>
-
-<style>
-</style>
