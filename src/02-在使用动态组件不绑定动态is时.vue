@@ -15,7 +15,6 @@ export default {
 
 <template>
     <div>
-
         <component is="A"></component>
     </div>
 </template>
