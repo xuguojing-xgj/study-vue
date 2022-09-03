@@ -4,7 +4,7 @@ import MyIndex from './layout/content/05-index.vue'
 
 <template>
     <div>
-        <MyIndex></MyIndex>
+        <MyIndex> </MyIndex>
     </div>
 </template>
 

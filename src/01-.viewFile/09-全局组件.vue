@@ -2,6 +2,7 @@
 <script setup lang="ts">
 import MyHeader from './layout/header/index.vue'
 import MyMenu from './layout/menu/index.vue'
+
 </script>
 
 

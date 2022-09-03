@@ -1,6 +1,7 @@
 <template>
     <div>
         <indexTemplate />
+        
     </div>
 </template>
 

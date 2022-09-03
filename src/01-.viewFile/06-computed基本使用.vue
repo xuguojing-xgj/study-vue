@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 let fistName = ref('')
+
 let lastName = ref('')
 
 // 计算属性
