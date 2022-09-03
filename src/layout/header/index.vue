@@ -4,13 +4,12 @@
 
 
 <template>
-  <div>
-    <p> 我是 header 组件 </p>
-  </div>
+    <div>
+        <div> 我是 header 组件 </div>
+    </div>
 </template>
 
 
 
 <style scoped>
-
 </style>
