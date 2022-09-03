@@ -6,7 +6,7 @@
 
 
 <template>
-    <div>
+    <div class="B">
         BBBBBBBBBBBBBB
     </div>
 </template>
