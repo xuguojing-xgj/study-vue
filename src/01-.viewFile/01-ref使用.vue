@@ -97,4 +97,5 @@ console.log(obj1.arrList);
 .bStyle {
     color: aqua;
 }
+
 </style>
