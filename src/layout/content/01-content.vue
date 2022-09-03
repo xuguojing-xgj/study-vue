@@ -18,7 +18,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
     title: '我是默认值',
     // 而设置 dataList 默认值 时 则不能直接 定义数据 (报错)
-    // 需要通过 一个函数 进行定义 返回数据
+    // 需要通过 一个函数 进行定义默认值
     dataList: () => [1, 2, 3, 4, 5, 6, 7, 8]
 })
 /**

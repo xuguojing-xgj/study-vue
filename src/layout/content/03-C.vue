@@ -1,12 +1,16 @@
+
+
 <script setup lang="ts">
-import MyIndex from './layout/content/04-index.vue'
+
 </script>
+
 
 <template>
     <div>
-        <MyIndex></MyIndex>
+        CCCCCCCCCCCCCCC
     </div>
 </template>
 
-<style>
+
+<style lang="less" scoped>
 </style>

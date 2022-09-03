@@ -39,6 +39,9 @@ export default {
     <div style="margin-left:30px">
         <div @click.stop="ClickTreeItem(item)" :key="index" v-for="(item, index) in SonTreeData">
             {{ item.name }}
+            <!-- ??  解决问题 undefined 和 null  左边表达式为 undefiend null  就会使用 ?? 右边表达式
+            不包括解决 0 和 false 
+            -->
             <TreeItem @on-son-click="ClickTreeItem" v-if="item?.children?.length" :SonTreeData="item.children"></TreeItem>
         </div>
     </div>

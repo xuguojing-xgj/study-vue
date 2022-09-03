@@ -33,9 +33,7 @@ const dataTree = reactive<TreeListType[]>([
     },
     {
         name: 'no.4',
-        children: [{
-            name: "no.4-1"
-        }]
+        children: []
     },
     {
         name: 'no.5',
