@@ -5,8 +5,8 @@ let msg = ref<string>('小明')
 let msg2 = ref<string>('小红')
 
 const stop = watchEffect((oninvalidate) => {
-    let ipt: HTMLInputElement = document.querySelector('#ipt')!
-    console.log('input元素------> ',ipt);
+    // let ipt: HTMLInputElement = document.querySelector('#ipt')!
+    // console.log('input元素------> ', ipt);
 
     console.log('msg---->', msg.value);
     console.log('msg2---->', msg2.value);
@@ -24,7 +24,11 @@ const stop = watchEffect((oninvalidate) => {
      *          sync 强制效果始终同步触发
      */
 }, {
-    flush: 'post'
+    flush: 'post',
+    // 在开发环境 可以进行调试
+    onTrigger(e) {        
+        debugger
+    }
 })
 /**
  * stop watchEffect 返回一个函数
