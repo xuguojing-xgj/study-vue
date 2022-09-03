@@ -2,6 +2,7 @@
 import { ref, watchEffect } from 'vue';
 
 let msg = ref<string>('小明')
+
 let msg2 = ref<string>('小红')
 
 const stop = watchEffect((oninvalidate) => {
