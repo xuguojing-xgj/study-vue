@@ -11,6 +11,7 @@
 </template>
 
 <script setup lang="ts">
+
 import { reactive, readonly, shallowReactive, isReactive } from 'vue'
 
 let message = reactive<Array<number>>([]) // 接收一个复杂类型的数据
