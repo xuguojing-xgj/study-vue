@@ -30,6 +30,21 @@ const dataTree = reactive<TreeListType[]>([
     },
     {
         name: 'no.3'
+    },
+    {
+        name: 'no.4',
+        children: [{
+            name: "no.4-1"
+        }]
+    },
+    {
+        name: 'no.5',
+        children: [{
+            name: "no.5-1",
+            children: [{
+                name: 'no.5-1-1'
+            }]
+        }]
     }
 ])
 </script>
@@ -51,7 +66,7 @@ const dataTree = reactive<TreeListType[]>([
 @border: #ccc;
 
 .menu {
-    width: 200px;
+    width: 300px;
     border-right: 1px solid @border;
 }
 </style>

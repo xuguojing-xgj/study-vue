@@ -6,20 +6,26 @@ import MyMenu from './layout/menu/index.vue'
 
 
 <template>
-    <div class="app">
+    <div class="App">
         <div>
             <MyMenu></MyMenu>
         </div>
+
         <div>
-            <MyHeader></MyHeader>
-        </div>
-        <div v-for="(item, i) in 5" :key="i">
-            <card :content="`我是第${item}个`"></card>
+            <MyHeader />
+            <div v-for="(item, i) in 5" :key="i">
+                <card :content="`我是第${item}个`"></card>
+            </div>
         </div>
     </div>
+
 </template>
 
 
 
 <style scoped lang="less">
+.App {
+    display: flex;
+    justify-content: flex-start;
+}
 </style>
