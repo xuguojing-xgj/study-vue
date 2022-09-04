@@ -29,13 +29,15 @@ setTimeout(() => {
 interface T {
     list: number[]
 }
+
+// 解决方法 ② 定义一个类型 进行赋值
 let msg = reactive<T>({
     list: []
 })
 
 setTimeout(() => {
     let arr = [1, 2, 2, 3, 3, 4, 4]
-    // 解决方法 ② 定义一个类型 进行赋值
+    
     msg.list = arr
 
     console.log(msg);
