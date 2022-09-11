@@ -1,4 +1,5 @@
 interface NameList {
+    id: number,
     name: string
 }
 
@@ -10,7 +11,9 @@ export const axios = (url: string): Promise<NameList[]> => {
 
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                resolve(JSON.parse(xhr.responseText))
+                setTimeout(() => {
+                    resolve(JSON.parse(xhr.responseText))
+                }, 900)
             }
         }
 
