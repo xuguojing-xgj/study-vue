@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import MyDialog from './components/Dialog/index.vue'
+let msg = ref('MyHeader')
 </script>
 
 <template>
@@ -14,6 +16,12 @@ import MyDialog from './components/Dialog/index.vue'
             </template>
             <template #MyFooter>
                 <div>我是MyFooter 具名插槽</div>
+            </template>
+        </MyDialog>
+
+        <MyDialog>
+            <template #[msg]>
+                <div>我是动态插槽</div>
             </template>
         </MyDialog>
     </div>
