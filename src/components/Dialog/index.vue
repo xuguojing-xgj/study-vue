@@ -31,9 +31,9 @@ const data = reactive<names[]>([{
         </header>
         <main class="main">main
             <!-- 匿名插槽 -->
-            <div v-for="item in data">
+            <div v-for="(item, index) in data">
                 <!-- 插槽传入数据 -->
-                <slot :data="item"></slot>
+                <slot :data="item" :index="index"></slot>
             </div>
         </main>
         <footer class="footer">footer

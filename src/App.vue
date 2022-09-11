@@ -5,11 +5,12 @@ import MyDialog from './components/Dialog/index.vue'
 <template>
     <div>
         <MyDialog>
-            <template v-slot:MyHeader>
+            <template #MyHeader>
                 <div>我是Header 具名插槽</div>
             </template>
-            <template v-slot="{data}">
-                <div>{{data.name}} --- {{data.age}}</div>
+            <!-- #default 匿名插槽的简写方式 -->
+            <template #default="{data, index}">
+                <div>{{data.name}} --- {{data.age}} --- {{index}}</div>
             </template>
             <template #MyFooter>
                 <div>我是MyFooter 具名插槽</div>
