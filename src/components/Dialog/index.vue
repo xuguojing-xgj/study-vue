@@ -1,5 +1,26 @@
 <script setup lang="ts">
+import { reactive } from 'vue'
 
+interface names {
+    name: string,
+    age: number
+}
+const data = reactive<names[]>([{
+    name: '小明1',
+    age: 18
+},
+{
+    name: '小明2',
+    age: 19
+},
+{
+    name: '小明3',
+    age: 20
+},
+{
+    name: '小明4',
+    age: 21
+}])
 </script>
 
 <template>
@@ -10,7 +31,10 @@
         </header>
         <main class="main">main
             <!-- 匿名插槽 -->
-            <slot></slot>
+            <div v-for="item in data">
+                <!-- 插槽传入数据 -->
+                <slot :data="item"></slot>
+            </div>
         </main>
         <footer class="footer">footer
             <slot name="MyFooter"></slot>
