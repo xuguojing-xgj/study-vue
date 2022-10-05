@@ -11,6 +11,8 @@ declare module '@vue/runtime-core' {
     Card: typeof import('./src/components/Card/index.vue')['default']
     Dialog: typeof import('./src/components/Dialog/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElOption: typeof import('element-plus/es')['ElOption']
+    ElSelect: typeof import('element-plus/es')['ElSelect']
     Tree: typeof import('./src/components/Tree/index.vue')['default']
   }
 }

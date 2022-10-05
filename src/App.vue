@@ -4,10 +4,12 @@
 
 <template>
     <div>
-        <el-button>asd</el-button>
+
     </div>
 </template>
 
-<style>
+
+
+<style lang="scss" scoped>
 
 </style>
