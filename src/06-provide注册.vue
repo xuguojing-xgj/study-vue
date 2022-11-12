@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, provide, nextTick } from "vue";
+
 const isRouterView = ref(true);
 //父组件刷新方法
 const reload = () => {
@@ -10,6 +11,7 @@ const reload = () => {
 }
 //provide进行注册
 provide('reload', reload);
+
 </script>
 
 <template>

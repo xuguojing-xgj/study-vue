@@ -8,6 +8,7 @@ const reload = inject("reload");
 //调用方法使用
 const handleClick = (val: any) => {
     if (typeof reload == "function") reload();
+    
 };
 </script>
 
