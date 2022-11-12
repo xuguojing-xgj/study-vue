@@ -34,7 +34,7 @@ const options = reactive<listData[]>([
     <div>
         <el-select v-model="value" class="m-2 autoWidth-sel" placeholder="Select" size="large" :clearable="true">
             <template #prefix>
-                {{options.find(s => s.value === value)?.label }}
+                {{ options.find(s => s.value === value)?.label }}
             </template>
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
