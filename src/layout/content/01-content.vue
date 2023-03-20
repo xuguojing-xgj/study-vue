@@ -50,7 +50,7 @@ interface T {
         fn: () => void
     }
 }
-const list = reactive<string[]>(['1', '2', '3'])
+const list = reactive<string[]>(['4', '5', '6'])
 const ObjList = reactive<T>({
     data: [1, 2, 3],
     name: '我是小明',
@@ -64,7 +64,11 @@ const ObjList = reactive<T>({
 /**
  * 想父组件 传递事件
  */
-const emit = defineEmits(['on-click', 'on-clickChange'])
+// const emit = defineEmits(['on-click', 'on-clickChange'])
+const emit = defineEmits<{
+    (e: "on-click", list: string[], isShow: boolean): void
+    (e: "on-clickChange", ObjList: any): void
+}>()
 /**
  * 定义方法
  */
@@ -79,7 +83,8 @@ const clickChange = () => {
  */
 defineExpose({
     list,
-    ObjList
+    ObjList,
+    open: () => console.log('open function'),
 })
 </script>
 
@@ -88,8 +93,8 @@ defineExpose({
     <div>
         <div class="div"> 我是 content 组件
 
-            <p>{{  title  }}</p>
-            <p>{{  dataList  }}</p>
+            <p>{{ title }}</p>
+            <p>{{ dataList }}</p>
 
             <button @click="change">子向父</button>
             <p class="p"></p>

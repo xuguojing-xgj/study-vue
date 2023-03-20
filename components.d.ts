@@ -14,5 +14,6 @@ declare module '@vue/runtime-core' {
     ElOption: typeof import('element-plus/es')['ElOption']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     Tree: typeof import('./src/components/Tree/index.vue')['default']
+    WaterFall: typeof import('./src/components/water-fall/water-fall.vue')['default']
   }
 }
