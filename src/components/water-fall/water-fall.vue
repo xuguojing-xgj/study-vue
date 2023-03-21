@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import {
-    onMounted, reactive
+    onMounted, reactive, ref
 } from 'vue';
 interface Props {
     list: any[]
@@ -11,6 +11,7 @@ onMounted(() => {
 const props = defineProps<Props>()
 
 const waterList = reactive<any[]>([])
+const heightList: number[] = []
 const init_func = () => {
     const width = 130;
     // 获取浏览器宽度
@@ -24,7 +25,22 @@ const init_func = () => {
             props.list[i].left = i * width
             props.list[i].top = 20
             waterList.push(props.list[i])
-            console.log(waterList);
+            heightList.push(props.list[i].height)
+        } else {
+            let current = heightList[0];
+            let index = 0;
+            heightList.forEach((h, i) => {
+                if (current > h) {
+                    current = h;
+                    index = i;
+                }
+            })
+            props.list[i].top = current + 20
+            props.list[i].left = index * width
+            console.log(heightList);
+
+            heightList[index] = heightList[index] + props.list[i].height + 20
+            waterList.push(props.list[i])
         }
     }
 }
