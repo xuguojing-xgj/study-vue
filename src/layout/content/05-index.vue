@@ -8,7 +8,7 @@
  *  name: 123
  * __v_skip: true
  */
-import { reactive, markRaw } from 'vue'
+import { reactive, markRaw, ref } from 'vue'
 
 import A from './02-A.vue'
 import B from './03-B.vue'
@@ -25,7 +25,7 @@ interface Tags {
 
 type com = Pick<Tags, 'comName'>
 
-const data = reactive<Tags[]>([
+const data: Tags[] = reactive<Tags[]>([
     {
         name: '我是A组件',
         comName: markRaw(A)
@@ -46,12 +46,13 @@ const data = reactive<Tags[]>([
 const Current = reactive<com>({
     comName: data[0].comName
 })
-
+const active = ref(0)
 /**
  * 切换组件
  */
-const swatchTags = (item: Tags) => {
+const swatchTags = (item: Tags, index: number) => {
     Current.comName = item.comName
+    active.value = index
 }
 </script>
 
@@ -59,7 +60,8 @@ const swatchTags = (item: Tags) => {
 <template>
     <div class="content">
         <div class="tag">
-            <div class="tag-item" @click="swatchTags(item)" v-for="(item, index) in data">{{ item.name }}</div>
+            <div :class="[active == index ? 'active' : '']" class="tag_item" @click="swatchTags(item, index)"
+                v-for="(item, index) in data">{{ item.name }}</div>
         </div>
         <component :is="Current.comName"></component>
     </div>
@@ -70,13 +72,19 @@ const swatchTags = (item: Tags) => {
 .tag {
     display: flex;
 
-    .tag-item {
+    .tag_item {
         margin: 0 10px;
         border: 1px solid #ccc;
+
         // 鼠标经过变小手
         &:hover {
             cursor: pointer;
         }
     }
+}
+
+.active {
+    background-color: skyblue;
+    color: #000;
 }
 </style>

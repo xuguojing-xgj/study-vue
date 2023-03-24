@@ -1,67 +1,16 @@
-<script setup lang="ts">
-import { ref, reactive } from 'vue'
-import waterFall from './components/water-fall/water-fall.vue'
-
-const list = [
-    {
-        height: 300,
-        background: 'pink',
-    },
-    {
-        height: 200,
-        background: 'red',
-    },
-    {
-        height: 100,
-        background: 'blue',
-    },
-    {
-        height: 400,
-        background: 'skyblue',
-    },
-    {
-        height: 200,
-        background: 'green',
-    },
-    {
-        height: 200,
-        background: 'green',
-    },
-    {
-        height: 400,
-        background: 'skyblue',
-    },
-    {
-        height: 300,
-        background: 'pink',
-    },
-    {
-        height: 200,
-        background: 'red',
-    },
-    {
-        height: 100,
-        background: 'blue',
-    },
-    {
-        height: 200,
-        background: 'green',
-    },
-    {
-        height: 200,
-        background: 'green',
-    },
-    {
-        height: 400,
-        background: 'skyblue',
-    },
-]
+<script setup lang='ts'>
+import { ref } from 'vue';
+// import card from './components/Card/index.vue'
+import comTemplate from './layout/content/05-index.vue'
 </script>
 
 <template>
-    <waterFall :list="list"></waterFall>
+    <div>
+        <card></card>
+
+        <comTemplate></comTemplate>
+        
+    </div>
 </template>
-
-
-
-<style lang="scss" scoped></style>
+    
+<style lang="less" scoped></style>

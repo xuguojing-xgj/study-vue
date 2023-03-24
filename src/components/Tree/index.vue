@@ -13,7 +13,9 @@ defineProps<Props>()
 /**
  * 向父组件 触发事件
  */
-const emit = defineEmits(['on-Son-click'])
+const emit = defineEmits<{
+    (e: 'on-Son-click', SonTreeData: TreeListType): void
+}>()
 const ClickTreeItem = (item: TreeListType) => {
     /**
      * 向父组件传递事件
@@ -40,12 +42,11 @@ export default {
         <div @click.stop="ClickTreeItem(item)" :key="index" v-for="(item, index) in SonTreeData">
             {{ item.name }}
             <!-- ??  解决问题 undefined 和 null  左边表达式为 undefiend null  就会使用 ?? 右边表达式
-            不包括解决 0 和 false 
-            -->
+                            不包括解决 0 和 false 
+                            -->
             <TreeItem @on-son-click="ClickTreeItem" v-if="item?.children?.length" :SonTreeData="item.children"></TreeItem>
         </div>
     </div>
 </template>
 
-<style>
-</style>
+<style></style>

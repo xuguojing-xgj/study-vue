@@ -25,6 +25,7 @@ defineProps<Props>()
 .card {
     border: 1px solid @border;
     width: 600px;
+    height: 300px;
 
     &:hover {
         box-shadow: 0 0 10px @border;
