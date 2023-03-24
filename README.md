@@ -14,7 +14,3 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
-
-## 学习地址
-
-- https://www.bilibili.com/video/BV1dS4y1y7vd?p=17&spm_id_from=pageDriver&vd_source=fa532e6daef07e74e9bd93c5bcb36c7e
