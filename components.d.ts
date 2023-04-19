@@ -8,11 +8,16 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     A: typeof import('./src/components/A/index.vue')['default']
+    Async: typeof import('./src/components/expame/async.vue')['default']
     Card: typeof import('./src/components/Card/index.vue')['default']
     Dialog: typeof import('./src/components/Dialog/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElSelect: typeof import('element-plus/es')['ElSelect']
+    ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
+    ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
+    Skeleton: typeof import('./src/components/expame/skeleton.vue')['default']
+    Sync: typeof import('./src/components/expame/sync.vue')['default']
     Tree: typeof import('./src/components/Tree/index.vue')['default']
     WaterFall: typeof import('./src/components/water-fall/water-fall.vue')['default']
   }

@@ -1,16 +1,10 @@
 <script setup lang='ts'>
-import { ref } from 'vue';
-// import card from './components/Card/index.vue'
-import comTemplate from './layout/content/05-index.vue'
+import { ref } from 'vue'
 </script>
 
 <template>
     <div>
-        <card></card>
-
-        <comTemplate></comTemplate>
-        
     </div>
 </template>
-    
-<style lang="less" scoped></style>
+
+<style lang='less' scoped></style>
