@@ -21,7 +21,7 @@ const login = (): Promise<User> => {
                 name: '小明',
                 age: 24
             })
-        }, 2000)
+        }, 1)
     })
 }
 // 定义
@@ -44,13 +44,13 @@ export const useGlobalStore = defineStore(Names.useGlobalStore, {
         setCount(num: number) {
             this.count = num
         },
-        async getUser() {
+        async getUser(name?: string) {
             // 同步
             // this.user = result
             // 异步
             const res = await login()
             this.user = res
-            this.setName(res.name)
+            this.setName('小红')
         },
         setName(name: string) {
             this.name = name

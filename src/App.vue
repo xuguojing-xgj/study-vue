@@ -13,10 +13,32 @@ const change = () => {
     // 3: 推荐写法 $patch  global.$patch((state) => {  state.count = 2 })
     // 4: global.$state 不能缺少 state 中的字段 global.$state = { count: 2,  name: '小紫' }
     // 5: action    global.setCount(2)
-    // global.count++
+    global.$patch((state) => { state.count++ })
     // console.log(count, name);
-    global.getUser()
+    global.getUser('小绿')
 }
+
+const reset = () => {
+    // 将 state 值 恢复成默认值
+    global.$reset()
+}
+
+// state 值变化的时候会执行该函数
+// 第二个参数(对象) 当前组件销毁时 是否继续侦听 active 方法
+global.$subscribe((args, state) => {
+    console.log(args, state);
+
+}, {
+    detached: true
+})
+
+// 调用 active 方法时会执行该函数
+// 第二个参数 当前组件销毁时 是否继续侦听 active 方法
+global.$onAction((args) => {
+    // args.args 代表方法传值
+    console.log(args);
+
+}, true)
 </script>
 
 <template>
@@ -32,7 +54,8 @@ const change = () => {
         <p> getters: {{ global.name }} </p>
     </div>
 
-    <button type="button" @click="change"> change </button>
+    <button type="button" @click="change"> change </button> <br>
+    <button type="button" @click="reset"> reset </button>
 </template>
 
 <style lang='less' scoped></style>
