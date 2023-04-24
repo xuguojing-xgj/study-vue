@@ -23,14 +23,16 @@ const change = () => {
     <div>
         ref: {{ global.count }} -- {{ global.name }} <br>
         noRef: {{ count }} -- {{ name }}
-        <button type="button" @click="change"> change </button>
     </div>
 
 
     <div>
         <p> action-user: {{ global.user }}</p>
         <p> action-name: {{ global.name }} </p>
+        <p> getters: {{ global.name }} </p>
     </div>
+
+    <button type="button" @click="change"> change </button>
 </template>
 
 <style lang='less' scoped></style>

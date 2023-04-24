@@ -33,9 +33,11 @@ export const useGlobalStore = defineStore(Names.useGlobalStore, {
         user: <User>{}
     }),
 
-    // 类似于 computed 也具有缓存
+    // 类似于 computed 也具有缓存 修饰值
     getters: {
-
+        newName(): string {
+            return `$-${this.name}`
+        }
     },
     // Action 相当于组件中的 method。 可以执行同步异步操作 
     actions: {
