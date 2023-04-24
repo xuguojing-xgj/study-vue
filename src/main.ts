@@ -5,7 +5,9 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // import './style.css'
 import App from './App.vue'
-
+// 创建pinia 实例
+import { createPinia } from 'pinia'
+const pinia = createPinia()
 /**
  * 全局注册组件
  */
@@ -18,4 +20,6 @@ const app = createApp(App)
 app.component('card', Card)
 // 挂载 ElementPlus
 app.use(ElementPlus)
+// 挂载 pinia
+app.use(pinia)
 app.mount('#app')
