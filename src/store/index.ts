@@ -16,6 +16,8 @@ export const useGlobalStore = defineStore(Names.useGlobalStore, {
     },
     // Action 相当于组件中的 method。 可以执行同步异步操作 
     actions: {
-
+        setCount(num: number) {
+            this.count = num
+        }
     }
 })
