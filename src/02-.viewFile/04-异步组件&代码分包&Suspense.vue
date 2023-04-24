@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
 // 异步组件 注册
-const A = defineAsyncComponent(() => import('../src/components/A/index.vue'))
+const A = defineAsyncComponent(() => import('@/components/A/index.vue'))
 // import A from './components/A/index.vue'
 </script>
 
@@ -25,6 +25,4 @@ const A = defineAsyncComponent(() => import('../src/components/A/index.vue'))
     </div>
 </template>
 
-<style>
-
-</style>
+<style></style>

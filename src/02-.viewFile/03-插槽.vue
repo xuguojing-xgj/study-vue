@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import MyDialog from './components/Dialog/index.vue'
+import MyDialog from '@/components/Dialog/index.vue'
 let msg = ref('MyHeader')
 </script>
 
