@@ -13,8 +13,9 @@ const change = () => {
     // 3: 推荐写法 $patch  global.$patch((state) => {  state.count = 2 })
     // 4: global.$state 不能缺少 state 中的字段 global.$state = { count: 2,  name: '小紫' }
     // 5: action    global.setCount(2)
-    global.count++
-    console.log(count, name);
+    // global.count++
+    // console.log(count, name);
+    global.getUser()
 }
 </script>
 
@@ -23,6 +24,12 @@ const change = () => {
         ref: {{ global.count }} -- {{ global.name }} <br>
         noRef: {{ count }} -- {{ name }}
         <button type="button" @click="change"> change </button>
+    </div>
+
+
+    <div>
+        <p> action-user: {{ global.user }}</p>
+        <p> action-name: {{ global.name }} </p>
     </div>
 </template>
 
