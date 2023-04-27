@@ -9,6 +9,8 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     A: typeof import('./src/components/A/index.vue')['default']
     Async: typeof import('./src/components/expame/async.vue')['default']
+    B: typeof import('./src/components/B/index.vue')['default']
+    C: typeof import('./src/components/C/index.vue')['default']
     Card: typeof import('./src/components/Card/index.vue')['default']
     Dialog: typeof import('./src/components/Dialog/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']

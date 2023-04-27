@@ -5,8 +5,16 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // import './style.css'
 import App from './App.vue'
+/**
+ * 全局注册组件
+ */
+import Card from './components/Card/index.vue'
 // 创建pinia 实例
 import { createPinia, PiniaPluginContext } from 'pinia'
+// 引入
+import mitt from 'mitt'
+
+const Mit = mitt()
 
 type Options = {
     key?: string
@@ -50,15 +58,28 @@ const pinia = createPinia()
 pinia.use(piniaPlugin({
     key: 'pinia'
 }))
+
+
+const app = createApp(App)
+
 /**
- * 全局注册组件
+ * 扩展globalProperties声明 推断mitt类型
  */
-import Card from './components/Card/index.vue'
+declare module 'vue' {
+    export interface ComponentCustomProperties {
+        $Bus: typeof Mit
+    }
+
+}
+
+
+
+// 全局注册 mitt
+app.config.globalProperties.$Bus = Mit
 /**
  * 挂载到 vue 实例
  * .component('在全局使用的组件名', 引入注册的组件名)
  */
-const app = createApp(App)
 app.component('card', Card)
 // 挂载 ElementPlus
 app.use(ElementPlus)
