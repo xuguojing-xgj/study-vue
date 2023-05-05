@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
-import { useGlobalStore } from './store'
+import { useGlobalStore } from './store/store-local-global'
 // 解决 pinia 结构不具有响应式的问题
 import { storeToRefs } from 'pinia'
 const global = useGlobalStore()
