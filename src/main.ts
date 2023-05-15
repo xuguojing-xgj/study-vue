@@ -3,8 +3,10 @@ import { createApp, toRaw } from 'vue'
 import ElementPlus from 'element-plus'
 // element plus css style
 import 'element-plus/dist/index.css'
-// import './style.css'
+import './style.css'
 import App from './App.vue'
+// 全局注册
+import router from './router'
 /**
  * 全局注册组件
  */
@@ -85,4 +87,6 @@ app.component('card', Card)
 app.use(ElementPlus)
 // 挂载 pinia
 app.use(pinia)
+// 挂载路由
+app.use(router)
 app.mount('#app')
