@@ -12,13 +12,14 @@ export default defineConfig({
             '@': path.resolve(__dirname, 'src'),
         },
     },
-    plugins: [vue(),
-    // ...
-    AutoImport({
-        resolvers: [ElementPlusResolver()],
-    }),
-    Components({
-        resolvers: [ElementPlusResolver()],
-    }),
+    plugins: [
+        vue(),
+        // ...
+        AutoImport({
+            resolvers: [ElementPlusResolver()],
+        }),
+        Components({
+            resolvers: [ElementPlusResolver()],
+        }),
     ]
 })

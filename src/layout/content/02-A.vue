@@ -8,7 +8,7 @@
 <template>
     <div class="A">
         只因, 你太美
-        <img src="../../assets/1000.jpg" alt="">
+        <img src="../../assets/2.jpg" alt="">
     </div>
 </template>
 
