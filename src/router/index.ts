@@ -21,5 +21,12 @@ const router = createRouter({
     routes
 })
 
+
+router.beforeEach((to, from, next) => {
+    console.log('to', to);
+    console.log('from', from);
+    console.log('next', next);
+})
+
 // 导出路由
 export default router
