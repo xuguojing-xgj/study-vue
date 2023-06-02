@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 dependencies:
   '@vueuse/core':
@@ -33,6 +37,9 @@ devDependencies:
   '@vitejs/plugin-vue':
     specifier: ^3.0.3
     version: registry.npmmirror.com/@vitejs/plugin-vue@3.1.0(vite@3.1.0)(vue@3.2.39)
+  dom-change-plugin:
+    specifier: ^0.0.1
+    version: registry.npmjs.org/dom-change-plugin@0.0.1
   typescript:
     specifier: ^4.6.4
     version: registry.npmmirror.com/typescript@4.8.3
@@ -50,6 +57,12 @@ devDependencies:
     version: registry.npmmirror.com/vue-tsc@0.39.5(typescript@4.8.3)
 
 packages:
+
+  registry.npmjs.org/dom-change-plugin@0.0.1:
+    resolution: {integrity: sha512-kLBbCBuXxEEqkjHB/qIoUGZspC1T8mxC5cxFtq59C+wknrEOuL7jSSTwaRBw1KRj5bp1NSvvGy1omKeHoU1FVQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmjs.org/dom-change-plugin/-/dom-change-plugin-0.0.1.tgz}
+    name: dom-change-plugin
+    version: 0.0.1
+    dev: true
 
   registry.npmmirror.com/@antfu/utils@0.5.2:
     resolution: {integrity: sha512-CQkeV+oJxUazwjlHD0/3ZD08QWKuGQkhnrKo3e6ly5pd48VUpXbb77q0xMU4+vc2CkJnDS02Eq/M9ugyX20XZA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@antfu/utils/-/utils-0.5.2.tgz}
