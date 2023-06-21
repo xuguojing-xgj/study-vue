@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     C: typeof import('./src/components/C/index.vue')['default']
     Card: typeof import('./src/components/Card/index.vue')['default']
     Dialog: typeof import('./src/components/Dialog/index.vue')['default']
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElInput: typeof import('element-plus/es')['ElInput']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
