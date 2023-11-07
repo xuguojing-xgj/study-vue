@@ -1,6 +1,8 @@
 <script setup lang='ts'>
 import {ref, reactive, computed} from 'vue';
+import csv from 'csvjson';
 
+console.log(csv)
 </script>
 
 <template>
