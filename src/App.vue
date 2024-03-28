@@ -1,28 +1,28 @@
 <script setup lang='ts'>
-import {ref, reactive, computed} from 'vue';
-import csv from 'csvjson';
+import { ref, reactive } from 'vue';
+import useTheme from "./utils/useTheme";
 
-const options = {
-  delimiter : ',', // optional
-  quote     : '"' // optional
-};
+const val = ref<boolean>(true);
+const { theme } = useTheme();
 
-const csvData = ' sr,name,age,gender\n' +
-    '    1,rocky,33,male\n' +
-    '    2,jacky,22,male\n' +
-    '    3,suzy,21,female';
 
-const res = csv.toObject(csvData,options)
-console.log(res)
-console.log(csv)
+
 </script>
 
 <template>
-  <div>
-    测试
-  </div>
+    <div class="w">
+
+        1查的
+        <el-switch v-model="val" :class="theme" @click="  theme = theme === 'dark' ? 'light' : 'dark'" />
+
+
+    </div>
 </template>
 
 <style lang='less' scoped>
-
+.w {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, var(--bg1), var(--bg2));
+}
 </style>

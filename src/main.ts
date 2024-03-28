@@ -3,10 +3,17 @@ import { createApp, toRaw } from 'vue'
 import ElementPlus from 'element-plus'
 // element plus css style
 import 'element-plus/dist/index.css'
+// 引入 Antd
+// import Antd from 'ant-design-vue';
+
 import './style.css'
+import './theme/theme.css'
+// 全局样式
+// import 'ant-design-vue/dist/reset.css';
+
 import App from './App.vue'
 // 全局注册
-import router from './router'
+import router from './router/index'
 /**
  * 全局注册组件
  */
@@ -89,4 +96,7 @@ app.use(ElementPlus)
 app.use(pinia)
 // 挂载路由
 app.use(router)
+// 挂载 Antd
+// app.use(Antd)
+
 app.mount('#app')
